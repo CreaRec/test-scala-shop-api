@@ -14,7 +14,7 @@ object User extends SQLSyntaxSupport[User] {
     val id = rs.intOpt(g.id)
     val login = rs.string(g.login)
     val password = rs.string(g.password)
-    new User(id, login, password)
+    User(id, login, password)
   }
 }
 

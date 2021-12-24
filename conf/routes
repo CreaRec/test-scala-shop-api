@@ -15,5 +15,10 @@ GET     /items/:id                  controllers.ItemController.getById(id: Int)
 POST    /items                      controllers.ItemController.add()
 DELETE  /items/:id                  controllers.ItemController.delete(id: Int)
 
+GET     /cart/items/:idUser         controllers.CartController.getByUserId(idUser: Int)
+POST    /cart                       controllers.CartController.add()
+DELETE  /cart/:idUser/:idItem       controllers.CartController.delete(idUser: Int, idItem: Int)
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

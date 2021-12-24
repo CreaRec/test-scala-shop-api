@@ -59,7 +59,6 @@ class ItemService {
   def remove(id: Int)(implicit session: DBSession = AutoSession): Unit = {
     withSQL {
       delete.from(Item as i).where.eq(i.id, id) }
-      .map(Item(i, c))
       .update()
       .apply();
   }

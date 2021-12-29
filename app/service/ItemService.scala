@@ -47,7 +47,7 @@ class ItemService {
         item = Item.mergeToModel(item, itemDTO)
         withSQL {
           update(Item)
-            .set(ic.barcode -> itemDTO.barcode, ic.name -> itemDTO.name, ic.price -> itemDTO.price, ic.idCategory -> itemDTO.idCategory)
+            .set(ic.barcode -> item.barcode, ic.name -> item.name, ic.price -> item.price, ic.idCategory -> item.idCategory)
             .where.eq(ic.id, item.id)
         }.updateAndReturnGeneratedKey.apply()
       } else {
@@ -60,6 +60,6 @@ class ItemService {
     withSQL {
       delete.from(Item as i).where.eq(i.id, id) }
       .update()
-      .apply();
+      .apply()
   }
 }

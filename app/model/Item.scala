@@ -47,4 +47,7 @@ object Item extends SQLSyntaxSupport[Item] {
     }
     new Item(item.id, barcode, name, price, idCategory, category)
   }
+
+  def opt(g: SyntaxProvider[Item])(rs: WrappedResultSet): Option[Item] =
+    rs.intOpt(g.resultName.id).map(_ => apply(g)(rs))
 }
